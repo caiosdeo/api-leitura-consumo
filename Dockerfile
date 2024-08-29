@@ -1,4 +1,4 @@
-# Base image
+# Dockerfile.dev
 FROM node:18
 
 # Set working directory
@@ -11,11 +11,8 @@ RUN npm install
 # Copy all files
 COPY . .
 
-# Compile TypeScript code
-RUN npm run build
-
 # Expose the application port
 EXPOSE 3000
 
-# Command to run the app
-CMD ["node", "dist/index.js"]
+# Command to run the app with TypeScript compilation
+CMD ["npm", "run", "dev"]
